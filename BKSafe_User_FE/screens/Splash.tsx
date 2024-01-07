@@ -9,13 +9,17 @@ interface SplashProps {
   navigation: RootNavigationProp;
 }
 const Splash = ({ navigation }: SplashProps) => {
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [isLoading, isAuthenticated] = useInitApp();
   useEffect(() => {
-    setTimeout(() => {
+    if (isLoading) {
+      return;
+    }
+    if (isAuthenticated) {
+      navigation.replace("App");
+    } else {
       navigation.replace("Auth");
-    }, 2000);
-  }, [navigation]);
+    }
+  }, [navigation, isLoading, isAuthenticated]);
   return (
     <LinearGradient
       colors={["#8abfff", "#ffffff", "#ffffff", "#429aff"]}
