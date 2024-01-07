@@ -13,12 +13,12 @@ const Splash = ({ navigation }: SplashProps) => {
   const [isLoading, isAuthenticated] = useInitApp();
   useEffect(() => {
     setTimeout(() => {
-      navigation.replace("App");
+      navigation.replace("Auth");
     }, 2000);
   }, [navigation]);
   return (
     <LinearGradient
-      colors={["#8abfff", COLOR.primary]}
+      colors={["#8abfff", "#ffffff", "#ffffff", "#429aff"]}
       style={styles.container}
     >
       <Image
@@ -31,7 +31,8 @@ const Splash = ({ navigation }: SplashProps) => {
       />
       <ActivityIndicator
         size="large"
-        color="white"
+        color={COLOR.primary}
+        style={styles.indicator}
       />
     </LinearGradient>
   );
@@ -44,5 +45,8 @@ const styles = StyleSheet.create({
     backgroundColor: COLOR.primary,
     flex: 1,
     justifyContent: "center",
+  },
+  indicator: {
+    marginVertical: 10,
   },
 });

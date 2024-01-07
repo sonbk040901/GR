@@ -1,13 +1,12 @@
 import { createStackNavigator } from "@react-navigation/stack";
-import * as React from "react";
-import { StyleSheet } from "react-native";
+import React from "react";
 import Login from "../screens/auth/Login";
 import Register from "../screens/auth/Register";
 const Stack = createStackNavigator();
 
 const AuthNavigator = () => {
   return (
-    <Stack.Navigator>
+    <Stack.Navigator screenOptions={{ headerShown: false }}>
       <Stack.Screen
         name="Login"
         component={Login}
@@ -21,7 +20,3 @@ const AuthNavigator = () => {
 };
 
 export default AuthNavigator;
-
-const styles = StyleSheet.create({
-  container: {},
-});

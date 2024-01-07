@@ -42,15 +42,16 @@ const Home: FC<HomeProps> = ({ navigation }) => {
             flex: 1,
             width: "100%",
           }}
+          showsVerticalScrollIndicator={false}
         >
-          <View style={{alignItems: "center", gap: 20, paddingVertical: 20}}>
+          <View style={{ alignItems: "center", gap: 20, paddingVertical: 20 }}>
             <TravelCard
               title="Chuyến đi hiện tại"
-              status="finding"
+              status="none"
               onPress={() => navigation.push("Map", { type: "current" })}
             />
             <TravelCard
-              title="Chuyến đi hiện tại"
+              title="Chuyến đi trước"
               status="finding"
               onPress={() => navigation.push("Map", { type: "current" })}
             />

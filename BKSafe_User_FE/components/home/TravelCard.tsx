@@ -74,7 +74,10 @@ const CardTravel = (props: CardTravelProps) => {
           </View>
         )}
       </View>
-      <Divider width={0.5} />
+      <Divider
+        color="#EBF0FA"
+        width={0.75}
+      />
       <TouchableOpacity onPress={onPress}>
         <View style={styles.footer}>
           <Text

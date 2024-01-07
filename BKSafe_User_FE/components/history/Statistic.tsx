@@ -1,7 +1,6 @@
 import { Divider, Icon } from "@rneui/themed";
 import React from "react";
 import { StyleSheet, Text, View } from "react-native";
-import { TouchableOpacity } from "react-native-gesture-handler";
 import { COLOR } from "../../constants/color";
 import Card from "../Card";
 
@@ -13,7 +12,7 @@ interface StatisticProps {
 const Statistic = (props: StatisticProps) => {
   const { totalPrice, totalTravle } = props;
   return (
-    <Card style={{ paddingBottom: 0 }}>
+    <Card style={styles.container}>
       <View
         style={{
           justifyContent: "center",
@@ -34,7 +33,10 @@ const Statistic = (props: StatisticProps) => {
           {totalPrice.toLocaleString()} VNĐ
         </Text>
       </View>
-      <Divider width={1} />
+      <Divider
+        color="#EBF0FA"
+        width={1}
+      />
       <View
         style={{
           paddingVertical: 15,
@@ -60,5 +62,5 @@ const Statistic = (props: StatisticProps) => {
 export default Statistic;
 
 const styles = StyleSheet.create({
-  container: {},
+  container: { paddingBottom: 0 },
 });

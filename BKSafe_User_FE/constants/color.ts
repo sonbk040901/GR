@@ -9,4 +9,5 @@ export const COLOR = {
   white: "#FFFFFF",
   primaryBackground: "#95c6ff67",
   appBackground: "#F4F6FA",
-};
+  secondary2: "#4C5980",
+} as const;

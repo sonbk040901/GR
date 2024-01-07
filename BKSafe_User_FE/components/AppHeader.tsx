@@ -1,9 +1,10 @@
 import { DrawerHeaderProps } from "@react-navigation/drawer";
+import { Icon } from "@rneui/themed";
 import React, { FC } from "react";
-import { Text, View, StyleSheet } from "react-native";
-import { COLOR } from "../constants/color";
+import { StyleSheet, Text, View } from "react-native";
+import { TouchableOpacity } from "react-native-gesture-handler";
 import { SafeAreaView } from "react-native-safe-area-context";
-import { Button } from "@rneui/themed";
+import { COLOR } from "../constants/color";
 
 const AppHeader: FC<DrawerHeaderProps> = ({ navigation, route }) => {
   return (
@@ -28,19 +29,29 @@ const AppHeader: FC<DrawerHeaderProps> = ({ navigation, route }) => {
           height: "100%",
         }}
       >
-        <Button
+        <TouchableOpacity
+          style={{ padding: 15 }}
+          onPress={() => {
+            navigation.toggleDrawer();
+          }}
+        >
+          <Icon
+            name="menu"
+            type="feather"
+            size={35}
+            color="white"
+          />
+        </TouchableOpacity>
+        {/* <Button
           radius="sm"
           buttonStyle={{ backgroundColor: "transparent" }}
           icon={{
             name: "menu",
             size: 35,
             color: "white",
-            type: "feather"
+            type: "feather",
           }}
-          onPress={() => {
-            navigation.toggleDrawer();
-          }}
-        />
+        /> */}
       </View>
     </SafeAreaView>
   );

@@ -14,28 +14,15 @@ const CommonInfo = (props: CommonInfoProps) => {
       <Avatar
         size={50}
         source={require("../../assets/images/avatar.png")}
-        avatarStyle={{
-          resizeMode: "contain",
-          width: 50,
-          height: 50,
-          borderRadius: 10,
-        }}
+        avatarStyle={styles.avatar}
       />
-      <View style={{ justifyContent: "center" }}>
-        <Text style={{ fontWeight: "bold", fontSize: 20 }}>Lê Đức Sơn</Text>
-        <Text style={{ fontWeight: "500", fontSize: 15 }}>
-          leducson007@gmail.com
-        </Text>
+      <View style={styles.info}>
+        <Text style={styles.name}>Lê Đức Sơn</Text>
+        <Text style={styles.email}>leducson007@gmail.com</Text>
       </View>
       <RectButton
-        style={{
-          alignItems: "center",
-          justifyContent: "center",
-          backgroundColor: COLOR.primaryBackground,
-          borderRadius: 10,
-          paddingVertical: 10,
-          paddingHorizontal: 15,
-        }}
+        style={styles.button}
+        rippleColor="#b6b6b64f"
       >
         <Text style={{ color: COLOR.primary, fontWeight: "500" }}>Sửa</Text>
       </RectButton>
@@ -50,6 +37,28 @@ const styles = StyleSheet.create({
     paddingVertical: 20,
     flexDirection: "row",
     alignItems: "center",
-    justifyContent: "space-between",
+    gap: 7,
+  },
+  avatar: {
+    resizeMode: "contain",
+    width: 50,
+    height: 50,
+    borderRadius: 10,
+  },
+  info: { justifyContent: "center", alignItems: "flex-start", flex: 1 },
+  name: { fontWeight: "bold", fontSize: 20 },
+  email: {
+    fontWeight: "500",
+    fontSize: 15,
+    color: COLOR.secondary2,
+    textTransform: "lowercase",
+  },
+  button: {
+    alignItems: "center",
+    justifyContent: "center",
+    backgroundColor: COLOR.primaryBackground,
+    borderRadius: 10,
+    paddingVertical: 10,
+    paddingHorizontal: 15,
   },
 });

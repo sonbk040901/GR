@@ -22,10 +22,10 @@ const styles = StyleSheet.create({
     zIndex: 100,
   },
   shadow: {
-    shadowColor: "#000",
+    shadowColor: "#575757",
     shadowOffset: {
       width: 0,
-      height: 5,
+      height: 3,
     },
     shadowOpacity: 0.35,
     shadowRadius: 7,

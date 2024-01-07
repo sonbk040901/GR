@@ -1,8 +1,9 @@
-import React from "react";
-import { Text, View, StyleSheet, TouchableNativeFeedback } from "react-native";
 import { DrawerContentComponentProps } from "@react-navigation/drawer";
-import { COLOR } from "../constants/color";
 import { Avatar, Icon } from "@rneui/themed";
+import React from "react";
+import { StyleSheet, Text, View } from "react-native";
+import { TouchableOpacity } from "react-native-gesture-handler";
+import { COLOR } from "../constants/color";
 import CustomDrawerItem from "./CustomDrawerItem";
 const drawerItems: {
   name: string;
@@ -19,33 +20,33 @@ const CustomDrawer = ({ navigation, state }: DrawerContentComponentProps) => {
   return (
     <View style={styles.container}>
       <View style={styles.userItem}>
-        <Icon
-          name="close"
-          size={30}
-          color="white"
-          style={styles.closeIcon}
-          onPress={() => navigation.closeDrawer()}
-        />
-        <TouchableNativeFeedback onPress={() => navigation.navigate("Profile")}>
-          <View style={styles.userInfo}>
-            <Avatar
-              size={50}
-              source={require("../assets/images/avatar.png")}
-              avatarStyle={{
-                resizeMode: "contain",
-                width: 50,
-                height: 50,
-              }}
-              containerStyle={styles.avatar}
-            />
-            <View style={styles.info}>
-              <Text style={styles.fullName}>Lê Đức Sơn</Text>
-              <Text style={styles.email}>leducson007@gmail.com</Text>
-            </View>
+        <TouchableOpacity onPress={() => navigation.closeDrawer()}>
+          <Icon
+            name="close"
+            type="ionicon"
+            size={35}
+            color="white"
+            style={styles.closeIcon}
+          />
+        </TouchableOpacity>
+        <View style={styles.userInfo}>
+          <Avatar
+            size={50}
+            source={require("../assets/images/avatar.png")}
+            avatarStyle={{
+              resizeMode: "contain",
+              width: 50,
+              height: 50,
+            }}
+            containerStyle={styles.avatar}
+          />
+          <View style={styles.info}>
+            <Text style={styles.fullName}>Lê Đức Sơn</Text>
+            <Text style={styles.email}>leducson007@gmail.com</Text>
           </View>
-        </TouchableNativeFeedback>
+        </View>
       </View>
-      <View>
+      <View style={styles.drawerItem}>
         {state.routes.map((route, index) => {
           const focused = index === state.index;
           return (
@@ -57,6 +58,14 @@ const CustomDrawer = ({ navigation, state }: DrawerContentComponentProps) => {
             />
           );
         })}
+      </View>
+      <View style={styles.drawerFooter}>
+        <Text>
+          <Text style={{ fontWeight: "bold" }}>BKSafe</Text> &copy;2024 by{" "}
+          <Text style={{ fontWeight: "bold", fontStyle: "italic" }}>
+            Lê Đức Sơn
+          </Text>
+        </Text>
       </View>
     </View>
   );
@@ -93,6 +102,14 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.29,
     shadowRadius: 4.65,
     elevation: 7,
+  },
+  drawerItem: {
+    flex: 1,
+  },
+  drawerFooter: {
+    height: 30,
+    justifyContent: "center",
+    alignItems: "center",
   },
   info: {},
   fullName: { fontWeight: "bold", fontSize: 20, color: "white" },

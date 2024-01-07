@@ -46,8 +46,8 @@ const Item = (props: ItemProps) => {
     <View
       style={{
         marginVertical: 5,
-        borderBottomColor: "gray",
-        borderBottomWidth: 0.5,
+        borderBottomColor: "#EBF0FA",
+        borderBottomWidth: 0.75,
       }}
     >
       <Swipeable

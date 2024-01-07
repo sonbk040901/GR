@@ -2,6 +2,7 @@ import { Icon, IconProps } from "@rneui/themed";
 import React, { useEffect, useRef, useState } from "react";
 import { StyleSheet, View } from "react-native";
 import { TextInput } from "react-native-gesture-handler";
+import { COLOR } from "../../constants/color";
 
 interface ItemProps {
   icon?: Partial<IconProps>;
@@ -9,7 +10,8 @@ interface ItemProps {
   content: string;
 }
 const Item = ({ icon, name, content }: ItemProps) => {
-  const [isChange, setIsChange] = useState(false);
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const [isChange, setIsChange] = useState(true);
   const inputRef = useRef<TextInput>(null);
   useEffect(() => {
     inputRef.current?.[isChange ? "focus" : "blur"]();
@@ -33,7 +35,7 @@ const Item = ({ icon, name, content }: ItemProps) => {
             {content}
           </TextInput>
         </View>
-        <Icon
+        {/* <Icon
           name={isChange ? "edit-3" : "edit-2"}
           size={25}
           type="feather"
@@ -45,7 +47,7 @@ const Item = ({ icon, name, content }: ItemProps) => {
             borderRadius: 5,
           }}
           onPress={() => setIsChange(!isChange)}
-        />
+        /> */}
       </View>
     </View>
   );
@@ -55,9 +57,12 @@ export default Item;
 
 const styles = StyleSheet.create({
   wrapper: {
-    marginVertical: 5,
-    borderBottomColor: "gray",
-    borderBottomWidth: 0.5,
+    paddingHorizontal: 2,
+    paddingVertical: 5,
+    borderBottomColor: "#EBF0FA",
+    // borderTopColor: "#EBF0FA",
+    borderBottomWidth: 0.75,
+    // borderTopWidth: 0.75,
   },
   container: {
     flexDirection: "row",
@@ -68,7 +73,8 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
   },
   text: {
-    fontSize: 20,
-    // fontWeight: "500",
+    fontSize: 18,
+    fontWeight: "500",
+    color: COLOR.black,
   },
 });
