@@ -1,6 +1,5 @@
 package com.gr.bksafe.dto.common;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Builder;
 
 /**
@@ -10,6 +9,12 @@ import lombok.Builder;
  * @Time: 14:51
  */
 @Builder
-public record Response<T>(boolean success, String message,
-                          T data) {
+public record Response<T>(boolean success, String message, T data) {
+    public Record ok() {
+        return Response.<T>builder()
+                .success(true)
+                .message("OK")
+                .data(this.data)
+                .build();
+    }
 }

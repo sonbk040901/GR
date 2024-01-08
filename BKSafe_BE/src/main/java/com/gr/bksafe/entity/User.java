@@ -29,14 +29,16 @@ public class User extends BaseEntity {
     private String avatar;
     @Enumerated(EnumType.ORDINAL)
     @ColumnDefault("2")
-    private Gender gender;
+    private Gender gender = Gender.OTHER;
     private boolean isActivated;
     @Column(insertable = false, updatable = false)
     @Enumerated(EnumType.ORDINAL)
-    private Role role;
+    @ColumnDefault("0")
+    private Role role = Role.USER;
     @OneToOne(mappedBy = "owner", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @ToString.Exclude
     private Car car;
+
 
     @Getter
     @RequiredArgsConstructor
